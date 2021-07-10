@@ -17,12 +17,60 @@ class Package:
         self.delivery_time = "00:00"
         self.delivery_status = "At hub"
 
+    # this function is used to print the details of a particular package
     def print_package_info(self):
         print("Package Id: " + str(self.package_id) + " Address: " + str(self.address) + " City: " + str(self.city) +
               " State: " + str(self.state) + " Zip: " + str(self.state) + " Deadline: " + str(self.deadline) +
               " Weight: " + str(self.weight) + " Notes: " + str(self.notes) + " Delivery Time: "
               + str(self.delivery_time) + " Status: " + str(self.delivery_status))
 
+    # returns the package id
+    def get_package_id(self):
+        return self.package_id
+
+    # returns the package address
+    def get_address(self):
+        return self.address
+
+    # returns the package city
+    def get_city(self):
+        return self.city
+
+    # returns the package state
+    def get_state(self):
+        return self.state
+
+    # returns the package zip
+    def get_zip(self):
+        return self.zip
+
+    # returns the package deadline
+    def get_deadline(self):
+        return self.deadline
+
+    # returns the package weight
+    def get_weight(self):
+        return self.weight
+
+    # returns the package notes
+    def get_notes(self):
+        return self.notes
+
+    # returns the package delivery time
+    def get_delivery_time(self):
+        return self.delivery_time
+
+    # returns the package delivery status
+    def get_delivery_status(self):
+        return self.delivery_status
+
+    # sets the value of notes to the package
+    def set_notes(self, note):
+        self.notes = note
+
+    # sets the delivery status to the package
+    def set_delivery_status(self, status):
+        self.delivery_status = status
 
 
 
