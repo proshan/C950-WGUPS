@@ -28,7 +28,7 @@ def display_ui():
 
 
 # this function chooses the next stop according to the current stop provided in the particular truck
-# with the implementation of nearest neighbor algorithm
+# with the implementation of Nearest Neighbor Algorithm
 def get_next_stop(current_stop, truck_number):
     # initializing nearest_stop distance to compare later on
     nearest_stop_distance = 30

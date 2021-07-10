@@ -24,6 +24,12 @@ class Package:
               " Weight: " + str(self.weight) + " Notes: " + str(self.notes) + " Delivery Time: "
               + str(self.delivery_time) + " Status: " + str(self.delivery_status))
 
+    # create a function that takes in the user input time
+    # compares it to delivered time
+    # if the user input time is in between truck start time for package and delivered time, status = en route
+    # if the user input time is less than truck start time, status = "in hub"
+    # if the user input time is greater than or equal to delivered time, status = delivered
+
     # returns the package id
     def get_package_id(self):
         return self.package_id
