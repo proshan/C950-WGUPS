@@ -3,6 +3,7 @@ class Hash:
     # Constructor with optional initial capacity parameter
     def __init__(self, initial_len=10):
         self.main_table = []
+        self.size = 0
         for i in range(initial_len):
             self.main_table.append([])
 
@@ -19,11 +20,12 @@ class Hash:
         # if k_v is not in the bucket_list, it will get inserted to the end of the bucket_list.
         key_value = [key, item]
         bucket_list.append(key_value)
+        self.size += 1
         return True
 
     # This will search from hashtable
     # item will be returned if found, if not, None will be returned
-    def search_hash(self, key):
+    def get_value(self, key):
         # get the bucket list where this key would be.
         bucket = hash(key) % len(self.main_table)
         bucket_list = self.main_table[bucket]
@@ -37,7 +39,7 @@ class Hash:
         return None
 
     # removes an item from the bucket list with the provided key
-    def remove_hash(self, key):
+    def remove(self, key):
         current_bucket = hash(key) % len(self.main_table)
         bucket_list = self.main_table[current_bucket]
 
@@ -46,3 +48,9 @@ class Hash:
             # print (key_value)
             if kv[0] == key:
                 bucket_list.remove([kv[0], kv[1]])
+
+    # this returns the size of hashtable
+    def get_hashtable_size(self):
+        return self.size
+
+
