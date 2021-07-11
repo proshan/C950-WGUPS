@@ -166,10 +166,14 @@ if __name__ == '__main__':
             print_travelled_distances()
         elif ":" in user_choice:
             # checking if the entered time is in format of HH:MM (total length of 5)
-            if len(user_choice) < 5:
+            if len(user_choice) != 5:
                 print("Time not in correct format!")
             else:
-                package_details_at_particular_time(user_choice)
+                # if the time is between 24 hours that particular day
+                if "00:00" < user_choice <= "23:59":
+                    package_details_at_particular_time(user_choice)
+                else:
+                    print("Time not invalid!")
         # if the entered data's length is less than 3, it should be the id of the package that user entered
         elif len(user_choice) < 3:
             handle_single_package_information(user_choice)
