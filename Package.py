@@ -1,5 +1,9 @@
 # Package class for WGUPS
 
+from trucks import *
+from read_csv import *
+
+
 class Package:
 
     # here, package is a list containing id, address, city,zip, deadline, weight, notes,
@@ -19,9 +23,9 @@ class Package:
 
     # this function is used to print the details of a particular package
     def print_package_info(self):
-        print("Package Id: " + str(self.package_id) + " Address: " + str(self.address) + " City: " + str(self.city) +
+        print("Id: " + str(self.package_id) + " Address: " + str(self.address) + " City: " + str(self.city) +
               " State: " + str(self.state) + " Zip: " + str(self.state) + " Deadline: " + str(self.deadline) +
-              " Weight: " + str(self.weight) + " Notes: " + str(self.notes) + " Delivery Time: "
+              " Weight: " + str(self.weight) + " Notes: " + str(self.notes) + " Time: "
               + str(self.delivery_time) + " Status: " + str(self.delivery_status))
 
     # create a function that takes in the user input time
@@ -29,8 +33,26 @@ class Package:
     # if the user input time is in between truck start time for package and delivered time, status = en route
     # if the user input time is less than truck start time, status = "in hub"
     # if the user input time is greater than or equal to delivered time, status = delivered
-
     # returns the package id
+    def get_a_package_info(self, time):
+        delivery_status = "in hub"
+        truck_start_time = ""
+        if self.get_package_id() in get_truck_one_packages():
+            truck_start_time = "08:00"
+        elif self.get_package_id() in get_truck_two_packages():
+            truck_start_time = "09:06"
+        elif self.get_package_id() in get_truck_three_package():
+            truck_start_time = "10:20"
+        if (time >= truck_start_time) and (time < self.delivery_time):
+            delivery_status = "en route"
+        elif time >= self.delivery_time:
+            delivery_status = "delivered at " + self.delivery_time
+        # printing with the delivery status detail
+        print("Id: " + str(self.package_id) + " Address: " + str(self.address) + " City: " + str(self.city) +
+              " State: " + str(self.state) + " Zip: " + str(self.state) + " Deadline: " + str(self.deadline) +
+              " Weight: " + str(self.weight) + " Notes: " + str(self.notes)
+              + " Status: " + " \"" + delivery_status + "\"")
+
     def get_package_id(self):
         return self.package_id
 

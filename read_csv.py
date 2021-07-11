@@ -17,6 +17,7 @@ hash_table = Hash()
 
 # reading distance from the table
 # the distance will be stored in two dimensional array (matrix)
+# -> O(n)
 def import_distance_data():
     with open(distance_filename, 'r', encoding="utf-8-sig") as file:
         distance_list = []
@@ -28,6 +29,7 @@ def import_distance_data():
 
 # this function imports the package information from 'wgu_package_data.csv'
 # and stores in the hash table with key=<package_id> and value=<package_information>
+# -> O(n)
 def import_package_data():
     with open(package_filename, 'r', encoding="utf-8-sig") as file:
         file_reader = csv.reader(file)
@@ -40,6 +42,7 @@ def import_package_data():
 # this function imports the addresses from the wgu_address_data.csv
 # and stores the address as key and
 # a list of address id and address name as value in a dictionary
+# -> O(n)
 def import_address_data():
     with open(address_filename, 'r', encoding="utf-8-sig") as file:
         file_reader = csv.reader(file)

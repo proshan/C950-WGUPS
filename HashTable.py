@@ -8,6 +8,7 @@ class Hash:
             self.main_table.append([])
 
     # this will insert a key value pair in the hash bucket list.
+    # -> O(n)
     def insert_hash(self, key, item):  # does both insert and update
         # get the bucket list where this item will go.
         current_bucket = hash(key) % len(self.main_table)
@@ -25,12 +26,11 @@ class Hash:
 
     # This will search from hashtable
     # item will be returned if found, if not, None will be returned
+    # -> O(n)
     def get_value(self, key):
         # get the bucket list where this key would be.
         bucket = hash(key) % len(self.main_table)
         bucket_list = self.main_table[bucket]
-        # print(bucket_list)
-
         # search for the key in the bucket list
         for kv in bucket_list:
             # print (key_value)
@@ -39,6 +39,7 @@ class Hash:
         return None
 
     # removes an item from the bucket list with the provided key
+    # -> O(n)
     def remove(self, key):
         current_bucket = hash(key) % len(self.main_table)
         bucket_list = self.main_table[current_bucket]
@@ -50,6 +51,7 @@ class Hash:
                 bucket_list.remove([kv[0], kv[1]])
 
     # this returns the size of hashtable
+    # -> O(1)
     def get_hashtable_size(self):
         return self.size
 
